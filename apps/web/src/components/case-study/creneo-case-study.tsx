@@ -34,12 +34,12 @@ function Hero({ study }: { study: CreneoContent }) {
         <MetaList accentFirst={study.number} items={study.meta} />
         <h1
           id="cs-title"
-          className="mt-3 font-display text-[length:clamp(88px,19vw,300px)] font-extrabold leading-[0.8] tracking-[-0.06em]"
+          className="mt-3 font-display text-[clamp(88px,19vw,300px)] font-extrabold leading-[0.8] tracking-[-0.06em]"
         >
           {study.title}
         </h1>
         <div className="mt-[clamp(32px,4vw,56px)] flex flex-wrap items-end gap-x-[clamp(32px,5vw,80px)] gap-y-8">
-          <p className="max-w-[34ch] flex-[2_1_380px] text-pretty font-display text-[length:clamp(22px,2.2vw,32px)] font-medium leading-[1.3] tracking-[-0.02em]">
+          <p className="max-w-[34ch] flex-[2_1_380px] text-pretty font-display text-[clamp(22px,2.2vw,32px)] font-medium leading-[1.3] tracking-[-0.02em]">
             {study.lead}
           </p>
           <div className="flex flex-[1_1_280px] flex-col gap-5">

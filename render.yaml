@@ -16,3 +16,7 @@ services:
         sync: false # Neon connection string, entered in the Render dashboard
       - key: CORS_ORIGIN
         sync: false # Vercel URL of the site, e.g. https://prenomnom.vercel.app
+      - key: RESEND_API_KEY
+        sync: false # Resend API key, used to email new contact messages
+      - key: CONTACT_NOTIFY_TO
+        sync: false # Address that receives contact notifications
