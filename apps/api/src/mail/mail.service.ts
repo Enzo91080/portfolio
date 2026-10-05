@@ -2,6 +2,7 @@ import { Inject, Injectable, Logger } from "@nestjs/common";
 import type { ContactMessage } from "@portfolio/contracts";
 import { Resend } from "resend";
 import { AppConfig } from "../config/app-config.js";
+import { renderContactEmail } from "./contact-email.js";
 
 /** Resend's shared sender: allowed until a domain of our own is verified. */
 const SENDER = "Portfolio <onboarding@resend.dev>";
@@ -27,20 +28,15 @@ export class MailService {
   async notifyContact(message: ContactMessage): Promise<void> {
     if (!this.client || !this.notifyTo) return;
 
-    const sender = message.name.replace(/[\r\n]+/g, " ");
+    const { subject, html, text } = renderContactEmail(message, new Date());
     try {
       const { error } = await this.client.emails.send({
         from: SENDER,
         to: this.notifyTo,
         replyTo: message.email,
-        subject: `Portfolio — nouveau message de ${sender}`,
-        text: [
-          `Nom : ${message.name}`,
-          `Email : ${message.email}`,
-          `Langue : ${message.locale}`,
-          "",
-          message.message,
-        ].join("\n"),
+        subject,
+        html,
+        text,
       });
       if (error) this.logger.error(`Contact email rejected by Resend: ${error.message}`);
     } catch (error) {
