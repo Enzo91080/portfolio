@@ -1,7 +1,7 @@
 import { caseStudyChromeEn, creneoEn, webcmsEn } from "./case-studies/en.js";
 import type { SiteContent } from "./types.js";
 
-const email = "contact@prenomnom.dev";
+const email = "enzo.aime91@gmail.com";
 const links = {
   cv: "/cv/prenom-nom-resume.pdf",
   linkedin: "https://www.linkedin.com/in/prenom-nom",
@@ -68,10 +68,10 @@ export const en: SiteContent = {
     ],
     portrait: {
       image: {
-        src: "/images/portrait.jpg",
+        src: "/images/portrait.png",
         alt: "Portrait of Enzo AIME",
-        width: 864,
-        height: 1536,
+        width: 1145,
+        height: 1374,
       },
       placeholder: "Portrait — neutral background, head and shoulders, side light",
     },
